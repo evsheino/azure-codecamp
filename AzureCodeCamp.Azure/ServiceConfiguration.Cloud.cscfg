@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="AzureCodeCamp.Azure" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="3" osVersion="*" schemaVersion="2012-10.1.8">
+  <Role name="AzureCodeCamp">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=mediasvcgjbzxhv7r6zqg;AccountKey=ULjqEpTzRMVnk1MqKN3ZDHF8XWJr4J4rCoJG2DV9mNx9MWJv9h9zNEqtO8s4CDa85LDFPPejoSqDAOCNUiIIrA==" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>

@@ -82,3 +82,14 @@ C:\Users\Erkki\documents\visual studio 2012\Projects\AzureCodeCamp\AzureCodeCamp
 C:\Users\Erkki\documents\visual studio 2012\Projects\AzureCodeCamp\AzureCodeCamp\bin\zh-Hant\System.Spatial.resources.dll
 C:\Users\Erkki\documents\visual studio 2012\Projects\AzureCodeCamp\AzureCodeCamp\obj\Release\AzureCodeCamp.dll
 C:\Users\Erkki\documents\visual studio 2012\Projects\AzureCodeCamp\AzureCodeCamp\obj\Release\AzureCodeCamp.pdb
+C:\Users\Erkki\documents\visual studio 2012\Projects\AzureCodeCamp\AzureCodeCamp\bin\Microsoft.Practices.TransientFaultHandling.Core.dll
+C:\Users\Erkki\documents\visual studio 2012\Projects\AzureCodeCamp\AzureCodeCamp\bin\Microsoft.WindowsAzure.Configuration.dll
+C:\Users\Erkki\documents\visual studio 2012\Projects\AzureCodeCamp\AzureCodeCamp\bin\Microsoft.WindowsAzure.Diagnostics.dll
+C:\Users\Erkki\documents\visual studio 2012\Projects\AzureCodeCamp\AzureCodeCamp\bin\Microsoft.WindowsAzure.MediaServices.Client.dll
+C:\Users\Erkki\documents\visual studio 2012\Projects\AzureCodeCamp\AzureCodeCamp\bin\Microsoft.WindowsAzure.Storage.dll
+C:\Users\Erkki\documents\visual studio 2012\Projects\AzureCodeCamp\AzureCodeCamp\bin\Microsoft.WindowsAzure.StorageClient.dll
+C:\Users\Erkki\documents\visual studio 2012\Projects\AzureCodeCamp\AzureCodeCamp\bin\Microsoft.Practices.TransientFaultHandling.Core.xml
+C:\Users\Erkki\documents\visual studio 2012\Projects\AzureCodeCamp\AzureCodeCamp\bin\Microsoft.WindowsAzure.Diagnostics.xml
+C:\Users\Erkki\documents\visual studio 2012\Projects\AzureCodeCamp\AzureCodeCamp\bin\Microsoft.WindowsAzure.Storage.xml
+C:\Users\Erkki\documents\visual studio 2012\Projects\AzureCodeCamp\AzureCodeCamp\bin\Microsoft.WindowsAzure.StorageClient.xml
+C:\Users\Erkki\documents\visual studio 2012\Projects\AzureCodeCamp\AzureCodeCamp\obj\Release\AzureCodeCamp.csprojResolveAssemblyReference.cache
