@@ -1,0 +1,22 @@
+﻿@model AzureCodeCamp.Models.JoukkoVideo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>JoukkoVideo</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.path)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.path)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

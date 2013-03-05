@@ -11,6 +11,7 @@ namespace AzureCodeCamp.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+            ViewBag.VideoUri = "http://mediasvcgjbzxhv7r6zqg.blob.core.windows.net/video/testi.mp4";
 
             return View();
         }
