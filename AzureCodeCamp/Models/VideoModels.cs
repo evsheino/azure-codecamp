@@ -14,6 +14,8 @@ namespace AzureCodeCamp.Models
     {
         public int ID { get; set; }
         [Required]
+        public string title { get; set; }
+        [Required]
         public string path { get; set; }
         [Required]
         public DateTime timestamp { get; set; }

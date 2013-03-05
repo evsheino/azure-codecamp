@@ -209,6 +209,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201303051200179_InitialCreate.cs" />
+    <Compile Include="Migrations\201303051200179_InitialCreate.Designer.cs">
+      <DependentUpon>201303051200179_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201303051316175_VideoDetails1.cs" />
+    <Compile Include="Migrations\201303051316175_VideoDetails1.Designer.cs">
+      <DependentUpon>201303051316175_VideoDetails1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201303051332246_VideoTitle.cs" />
+    <Compile Include="Migrations\201303051332246_VideoTitle.Designer.cs">
+      <DependentUpon>201303051332246_VideoTitle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\VideoModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -293,7 +306,9 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -343,6 +358,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201303051200179_InitialCreate.resx">
+      <DependentUpon>201303051200179_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201303051316175_VideoDetails1.resx">
+      <DependentUpon>201303051316175_VideoDetails1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201303051332246_VideoTitle.resx">
+      <DependentUpon>201303051332246_VideoTitle.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

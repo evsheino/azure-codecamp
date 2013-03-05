@@ -12,7 +12,7 @@
 <table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.path)
+            @Html.DisplayNameFor(model => model.title)
         </th>
         <th></th>
     </tr>
@@ -20,7 +20,14 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.path)
+            @Html.DisplayFor(modelItem => item.title)
+            <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
+            <script src="http://vjs.zencdn.net/c/video.js"></script>
+            <video class="video-js vjs-default-skin" controls
+                preload="auto" width="640" height="480"
+                data-setup="{}">
+                <source src="@Html.DisplayFor(modelItem => item.path)" type='video/mp4'>
+            </video>
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
