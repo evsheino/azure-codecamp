@@ -18,7 +18,7 @@ namespace AzureCodeCamp.Controllers
 
         public ActionResult Index()
         {
-            return View(db.JoukkoVideos.ToList());
+            return View(db.JoukkoVideos.OrderByDescending(jv => jv.timestamp).ToList());
         }
 
         //
@@ -37,6 +37,7 @@ namespace AzureCodeCamp.Controllers
         //
         // GET: /JoukkoVideo/Create
 
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -45,6 +46,7 @@ namespace AzureCodeCamp.Controllers
         //
         // POST: /JoukkoVideo/Create
 
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(JoukkoVideo joukkovideo)
@@ -62,6 +64,7 @@ namespace AzureCodeCamp.Controllers
         //
         // GET: /JoukkoVideo/Edit/5
 
+        [Authorize]
         public ActionResult Edit(int id = 0)
         {
             JoukkoVideo joukkovideo = db.JoukkoVideos.Find(id);
