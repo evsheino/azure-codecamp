@@ -16,9 +16,27 @@ namespace AzureCodeCamp.Controllers
         //
         // GET: /JoukkoVideo/
 
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            return View(db.JoukkoVideos.OrderByDescending(jv => jv.timestamp).ToList());
+            /**
+            * Get videos ordered by timestamp (newest first).
+            * The results are paginated.
+            **/
+
+            const int pageSize = 20;
+            int pageNum = (page ?? 1);
+
+            if (pageNum < 0)
+            {
+                pageNum = 1;
+            }
+
+            int skip = (pageNum - 1) * pageSize;
+
+            var videos = db.JoukkoVideos.OrderByDescending(jv => jv.timestamp).
+                Skip((pageNum - 1) * pageSize).Take(pageSize).ToList();
+
+            return View(videos);
         }
 
         //
