@@ -13,6 +13,13 @@
          @Html.DisplayNameFor(model => model.path)
     </div>
     <div class="display-field">
+        <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
+            <script src="http://vjs.zencdn.net/c/video.js"></script>
+            <video class="video-js vjs-default-skin" controls
+                    preload="auto" width="640" height="480"
+                    data-setup="{}">
+                <source src="@Html.DisplayFor(model => model.path)" type='video/mp4'>
+            </video>
         @Html.DisplayFor(model => model.path)
     </div>
 </fieldset>
