@@ -7,6 +7,10 @@ using System.Web;
 using System.Web.Mvc;
 using AzureCodeCamp.Models;
 using AzureCodeCamp.Utils;
+using System.Web.Security;
+using DotNetOpenAuth.AspNet;
+using Microsoft.Web.WebPages.OAuth;
+using WebMatrix.WebData;
 
 namespace AzureCodeCamp.Controllers
 {
@@ -91,22 +95,34 @@ namespace AzureCodeCamp.Controllers
         //
         // POST: /JoukkoVideo/Edit/5
 
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(JoukkoVideo joukkovideo)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(joukkovideo).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+            var vid = db.JoukkoVideos.Single(video => video.ID == joukkovideo.ID);
+            db.JoukkoVideos.Load();
+            vid.title = joukkovideo.title;
+            //db.JoukkoVideos.Single(video => video.ID == joukkovideo.ID).title = joukkovideo.title;
+            db.SaveChanges();
+            /*
+            //if (ModelState.IsValid)
+            //{
+                if (joukkovideo.user.UserId == WebSecurity.CurrentUserId ||
+                    Roles.GetRolesForUser().Contains("Admin"))
+                {
+                    db.Entry(joukkovideo).State = EntityState.Modified;
+                    db.SaveChanges();*/
+                    //return RedirectToAction("Index");
+                //}
+            //}
             return View(joukkovideo);
         }
 
         //
         // GET: /JoukkoVideo/Delete/5
 
+        [Authorize(Roles="Admin")]
         public ActionResult Delete(int id = 0)
         {
             JoukkoVideo joukkovideo = db.JoukkoVideos.Find(id);
@@ -120,6 +136,7 @@ namespace AzureCodeCamp.Controllers
         //
         // POST: /JoukkoVideo/Delete/5
 
+        [Authorize(Roles="Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

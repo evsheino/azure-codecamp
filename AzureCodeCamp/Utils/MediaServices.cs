@@ -11,7 +11,7 @@ using Microsoft.WindowsAzure.MediaServices.Client;
 
 namespace AzureCodeCamp.Utils
 {
-    public class MediaServices
+    public static class MediaServices
     {
 
         private static readonly string _accountKey = ConfigurationManager.AppSettings["accountKey"];

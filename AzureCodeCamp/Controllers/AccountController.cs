@@ -80,6 +80,11 @@ namespace AzureCodeCamp.Controllers
                 try
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
+
+                    if (!Roles.RoleExists("Standard"))
+                        Roles.CreateRole("Standard");
+                    Roles.AddUserToRole(model.UserName, "Standard");
+
                     WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToAction("Index", "Home");
                 }
