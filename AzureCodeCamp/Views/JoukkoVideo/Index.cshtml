@@ -34,3 +34,9 @@
 }
 
 </table>
+<br />
+<div class="pagination">
+    Page @ViewBag.Page of @ViewBag.PageCount
+    @Html.ActionLink("First", "Index", (int)@ViewBag.PageCount) |
+    @Html.ActionLink("Last", "Index", (int)@ViewBag.PageCount)
+</div>

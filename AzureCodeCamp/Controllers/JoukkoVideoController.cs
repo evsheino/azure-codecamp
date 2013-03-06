@@ -25,16 +25,24 @@ namespace AzureCodeCamp.Controllers
 
             const int pageSize = 20;
             int pageNum = (page ?? 1);
+            int pageCount = (db.JoukkoVideos.Count() + pageSize - 1) / pageSize;
 
             if (pageNum < 0)
             {
                 pageNum = 1;
             }
+            else if (pageNum > pageCount)
+            {
+                pageNum = pageCount;
+            }
 
             int skip = (pageNum - 1) * pageSize;
 
-            var videos = db.JoukkoVideos.OrderByDescending(jv => jv.timestamp).
-                Skip((pageNum - 1) * pageSize).Take(pageSize).ToList();
+            List<JoukkoVideo> videos = db.JoukkoVideos.OrderByDescending(jv => jv.timestamp).
+                                        Skip(skip).Take(pageSize).ToList();
+
+            ViewBag.PageCount = pageCount;
+            ViewBag.Page = pageNum;
 
             return View(videos);
         }
