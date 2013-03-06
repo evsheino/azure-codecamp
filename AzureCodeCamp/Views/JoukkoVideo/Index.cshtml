@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AzureCodeCamp.Models.JoukkoVideo>
+﻿@model AzureCodeCamp.Utils.PaginatedList<AzureCodeCamp.Models.JoukkoVideo>
 
 @{
     ViewBag.Title = "Videos";
@@ -35,8 +35,32 @@
 
 </table>
 <br />
+
 <div class="pagination">
-    Page @ViewBag.Page of @ViewBag.PageCount
-    @Html.ActionLink("First", "Index", (int)@ViewBag.PageCount) |
-    @Html.ActionLink("Last", "Index", (int)@ViewBag.PageCount)
+    Page @Model.PageIndex of @Model.TotalPages
+    <br />
+    @if (@Model.HasPreviousPage)
+    {
+        @Html.ActionLink("First", "Index")
+    } else {
+        @:First
+    } |
+    @if (@Model.HasPreviousPage)
+    {
+        @Html.ActionLink("Previous", "Index", new { page = ((int)@Model.PageIndex - 1) })
+    } else {
+        @:Previous
+    } |
+    @if (@Model.HasNextPage)
+    {
+        @Html.ActionLink("Next", "Index", new { page = ((int)@Model.PageIndex + 1) })
+    } else {
+        @:Next
+    } |
+    @if (@Model.HasNextPage)
+    {
+        @Html.ActionLink("Last", "Index", new { page = (int)@Model.TotalPages })
+    } else {
+        @:Last
+    }
 </div>

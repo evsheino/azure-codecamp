@@ -16,18 +16,23 @@ namespace AzureCodeCamp.Utils
         public PaginatedList(IQueryable<T> source, int pageIndex, int pageSize)
         {
             PageIndex = pageIndex;
+            
+            if (pageIndex < 1)
+                PageIndex = 1;
+            else
+                PageIndex = pageIndex;
+
             PageSize = pageSize;
             TotalCount = source.Count();
             TotalPages = (int)Math.Ceiling(TotalCount / (double)PageSize);
-
-            this.AddRange(source.Skip(PageIndex * PageSize).Take(PageSize));
+            this.AddRange(source.Skip((PageIndex - 1) * PageSize).Take(PageSize));
         }
 
         public bool HasPreviousPage
         {
             get
             {
-                return (PageIndex > 0);
+                return (PageIndex > 1);
             }
         }
 
@@ -35,7 +40,7 @@ namespace AzureCodeCamp.Utils
         {
             get
             {
-                return (PageIndex + 1 < TotalPages);
+                return (PageIndex < TotalPages);
             }
         }
     }

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AzureCodeCamp.Models;
+using AzureCodeCamp.Utils;
 
 namespace AzureCodeCamp.Controllers
 {
@@ -25,26 +26,12 @@ namespace AzureCodeCamp.Controllers
 
             const int pageSize = 20;
             int pageNum = (page ?? 1);
-            int pageCount = (db.JoukkoVideos.Count() + pageSize - 1) / pageSize;
 
-            if (pageNum < 0)
-            {
-                pageNum = 1;
-            }
-            else if (pageNum > pageCount)
-            {
-                pageNum = pageCount;
-            }
+            var videos = db.JoukkoVideos.OrderByDescending(jv => jv.timestamp);
 
-            int skip = (pageNum - 1) * pageSize;
+            var paginator = new PaginatedList<JoukkoVideo>(videos, pageNum, pageSize);
 
-            List<JoukkoVideo> videos = db.JoukkoVideos.OrderByDescending(jv => jv.timestamp).
-                                        Skip(skip).Take(pageSize).ToList();
-
-            ViewBag.PageCount = pageCount;
-            ViewBag.Page = pageNum;
-
-            return View(videos);
+            return View(paginator);
         }
 
         //
