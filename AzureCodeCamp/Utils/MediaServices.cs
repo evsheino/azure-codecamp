@@ -18,7 +18,7 @@ namespace AzureCodeCamp.Utils
         private static readonly string _accountName = ConfigurationManager.AppSettings["accountName"];
 
         // Field for service context.
-        private static CloudMediaContext _context = null;
+        private static CloudMediaContext _context = new CloudMediaContext(_accountName, _accountKey);
 
         //TODO: Enkoodattoman videon poisto ainakin
         //Esimerkki käyttöä
@@ -39,7 +39,7 @@ namespace AzureCodeCamp.Utils
 
         }*/
 
-        static IAsset createAsset(string uploadPath)
+        public static IAsset createAsset(string uploadPath)
         {
             var assetName = Path.GetFileNameWithoutExtension(uploadPath) + "_" + DateTime.UtcNow.ToString();
             var uploadAsset = _context.Assets.Create(assetName, AssetCreationOptions.None);
@@ -49,7 +49,7 @@ namespace AzureCodeCamp.Utils
             return uploadAsset;
         }
 
-        static IAsset encodeAsset(string assetIdToEncode)
+        public static IAsset encodeAsset(string assetIdToEncode)
         {
             var encodeAssetId = assetIdToEncode;
             // Preset reference documentation: http://msdn.microsoft.com/en-us/library/windowsazure/jj129582.aspx    
@@ -78,7 +78,7 @@ namespace AzureCodeCamp.Utils
             return preparedAsset;
         }
 
-        static IAsset GetAsset(string assetId)
+        public static IAsset GetAsset(string assetId)
         {
             // Use a LINQ Select query to get an asset.
             var assetInstance =
@@ -91,7 +91,7 @@ namespace AzureCodeCamp.Utils
             return asset;
         }
 
-        static string GetStreamingURL(IAsset preparedAsset, int daysForWhichStreamingUrlIsActive = 365)
+        public static string GetStreamingURL(IAsset preparedAsset, int daysForWhichStreamingUrlIsActive = 365)
         {
             var streamingAssetId = preparedAsset.Id; // "YOUR ASSET ID";
 
@@ -133,7 +133,7 @@ namespace AzureCodeCamp.Utils
             return streamingUrl;
         }
 
-        static void DeleteAsset(IAsset asset)
+        public static void DeleteAsset(IAsset asset)
         {
             // delete the asset
             asset.Delete();
