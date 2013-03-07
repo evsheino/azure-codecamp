@@ -1,9 +1,5 @@
 ﻿@model List<AzureCodeCamp.Models.Category>
 
-@{
-    ViewBag.Title = "Videos";
-}
-
 <h2>@ViewBag.Category</h2>
 
 <p>
@@ -14,21 +10,8 @@
     <tr>
         <td>
             <h3>
-                @Html.DisplayFor(modelItem => item.title)
+                @Html.ActionLink(item.name, "", new { id=item.ID })
             </h3>
-            <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
-            <script src="http://vjs.zencdn.net/c/video.js"></script>
-            <video class="video-js vjs-default-skin" controls
-                preload="auto" width="640" height="480"
-                data-setup="{}">
-                <source src="@Html.DisplayFor(modelItem => item.path)" type='video/mp4'>
-            </video>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>
     </tr>
 }
