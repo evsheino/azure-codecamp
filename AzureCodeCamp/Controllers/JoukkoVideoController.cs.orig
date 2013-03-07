@@ -72,7 +72,7 @@ namespace AzureCodeCamp.Controllers
         public ActionResult Create(JoukkoVideo joukkovideo, HttpPostedFileBase file)
         {
             if (file != null && file.ContentLength > 0)
-            {
+            {        
                 /* On niin shaibaa et tallennetaan välissä servulle, josta sitten siirrellään media serviceen*/
                 string fn = Path.GetFileName(file.FileName);
                 string SaveLocation = Server.MapPath("~\\tmpData") + "\\" + fn;
@@ -87,7 +87,7 @@ namespace AzureCodeCamp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+           
             return View(joukkovideo);
         }
 
@@ -113,6 +113,7 @@ namespace AzureCodeCamp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(JoukkoVideo joukkovideo)
         {
+
             if (ModelState.IsValid)
             {
                 if (joukkovideo.user.UserId == WebSecurity.CurrentUserId ||
