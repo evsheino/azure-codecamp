@@ -5,13 +5,13 @@ namespace AzureCodeCamp.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class VideoTitle : IMigrationMetadata
+    public sealed partial class Initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(VideoTitle));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201303051332246_VideoTitle"; }
+            get { return "201303071141364_Initial"; }
         }
         
         string IMigrationMetadata.Source

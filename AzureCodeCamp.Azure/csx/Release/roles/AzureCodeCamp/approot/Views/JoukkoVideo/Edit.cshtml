@@ -16,13 +16,24 @@
         @Html.HiddenFor(model => model.ID)
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.path)
+            @Html.LabelFor(model => model.title)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.path)
+            @Html.EditorFor(model => model.title)
+            @Html.ValidationMessageFor(model => model.title)
+        </div>
+        <div class="editor-field">
+            @Html.HiddenFor(model => model.path)
             @Html.ValidationMessageFor(model => model.path)
         </div>
-
+        <div class="editor-field">
+            @Html.HiddenFor(model => model.user.UserId)
+            @Html.ValidationMessageFor(model => model.user)
+        </div>
+        <div class="editor-field">
+            @Html.HiddenFor(model => model.timestamp)
+            @Html.ValidationMessageFor(model => model.timestamp)
+        </div>
         <p>
             <input type="submit" value="Save" />
         </p>

@@ -25,11 +25,11 @@ namespace AzureCodeCamp.Filters
         {
             public SimpleMembershipInitializer()
             {
-                Database.SetInitializer<UsersContext>(null);
+                Database.SetInitializer<JoukkoVideoDBContext>(null);
 
                 try
                 {
-                    using (var context = new UsersContext())
+                    using (var context = new JoukkoVideoDBContext())
                     {
                         if (!context.Database.Exists())
                         {

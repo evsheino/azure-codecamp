@@ -38,5 +38,6 @@ namespace AzureCodeCamp.Models
     public class JoukkoVideoDBContext : DbContext
     {
         public DbSet<JoukkoVideo> JoukkoVideos { get; set; }
+        public DbSet<UserProfile> UserProfiles { get; set; }
     }
 }

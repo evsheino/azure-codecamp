@@ -204,17 +204,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201303051200179_InitialCreate.cs" />
-    <Compile Include="Migrations\201303051200179_InitialCreate.Designer.cs">
-      <DependentUpon>201303051200179_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201303051316175_VideoDetails1.cs" />
-    <Compile Include="Migrations\201303051316175_VideoDetails1.Designer.cs">
-      <DependentUpon>201303051316175_VideoDetails1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201303051332246_VideoTitle.cs" />
-    <Compile Include="Migrations\201303051332246_VideoTitle.Designer.cs">
-      <DependentUpon>201303051332246_VideoTitle.cs</DependentUpon>
+    <Compile Include="Migrations\201303071141364_Initial.cs" />
+    <Compile Include="Migrations\201303071141364_Initial.Designer.cs">
+      <DependentUpon>201303071141364_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -360,14 +352,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201303051200179_InitialCreate.resx">
-      <DependentUpon>201303051200179_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201303051316175_VideoDetails1.resx">
-      <DependentUpon>201303051316175_VideoDetails1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201303051332246_VideoTitle.resx">
-      <DependentUpon>201303051332246_VideoTitle.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201303071141364_Initial.resx">
+      <DependentUpon>201303071141364_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

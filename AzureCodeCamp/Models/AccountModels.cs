@@ -8,6 +8,7 @@ using System.Web.Security;
 
 namespace AzureCodeCamp.Models
 {
+    /*
     public class UsersContext : DbContext
     {
         public UsersContext()
@@ -17,7 +18,7 @@ namespace AzureCodeCamp.Models
 
         public DbSet<UserProfile> UserProfiles { get; set; }
     }
-
+    */
     [Table("UserProfile")]
     public class UserProfile
     {
