@@ -73,21 +73,19 @@ namespace AzureCodeCamp.Controllers
         {
             if (file != null && file.ContentLength > 0)
             {
-                Response.Redirect("Index", false);
-                /* On niin shaibaa et tallennetaan välissä servulle, josta sitten siirrellään media serviceen*/
-                string fn = Path.GetFileName(file.FileName);
-                string SaveLocation = Server.MapPath("~\\tmpData") + "\\" + fn;
-                file.SaveAs(SaveLocation);
                 
-                var addedFile = MediaServices.createAsset(SaveLocation);
-                var blobId = MediaServices.encodeAsset(addedFile.Id);
+                var blob = BlobStorage.uploadBlob(file);
+             
+                var addedFile = MediaServices.createAsset(blob.Uri.ToString());
+               /* var blobId = MediaServices.encodeAsset(addedFile.Id);
                 MediaServices.DeleteAsset(addedFile);
 
                 joukkovideo.path = MediaServices.GetStreamingURL(blobId);
                 var user = db.UserProfiles.Single(u => u.UserId == WebSecurity.CurrentUserId);
                 joukkovideo.user = user;
                 db.JoukkoVideos.Add(joukkovideo);
-                db.SaveChanges();
+                db.SaveChanges();*/
+
                 return RedirectToAction("Index");
             }
 
