@@ -12,6 +12,7 @@ using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using AzureCodeCamp.Filters;
+using System.IO;
 
 namespace AzureCodeCamp.Controllers
 {
@@ -68,10 +69,20 @@ namespace AzureCodeCamp.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(JoukkoVideo joukkovideo)
+        public ActionResult Create(JoukkoVideo joukkovideo, HttpPostedFileBase file)
         {
-            if (ModelState.IsValid)
+            if (file != null && file.ContentLength > 0)
             {
+                /* On niin shaibaa et tallennetaan välissä servulle, josta sitten siirrellään media serviceen*/
+                string fn = Path.GetFileName(file.FileName);
+                string SaveLocation = Server.MapPath("~\\tmpData") + "\\" + fn;
+                file.SaveAs(SaveLocation);
+                
+                var addedFile = MediaServices.createAsset(SaveLocation);
+                var blobId = MediaServices.encodeAsset(addedFile.Id);
+                MediaServices.DeleteAsset(addedFile);
+                
+                joukkovideo.path = MediaServices.GetStreamingURL(blobId);
                 db.JoukkoVideos.Add(joukkovideo);
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -6,23 +6,23 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm("Create", "JoukkoVideo", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+    
 
     <fieldset>
         <legend>JoukkoVideo</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.path)
+            Upload file (max 100mb pl0x!):
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.path)
-            @Html.ValidationMessageFor(model => model.path)
+            <input type="file" name="file" />
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Upload" />
         </p>
     </fieldset>
 }
