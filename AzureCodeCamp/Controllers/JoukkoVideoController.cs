@@ -81,8 +81,12 @@ namespace AzureCodeCamp.Controllers
                 var addedFile = MediaServices.createAsset(SaveLocation);
                 var blobId = MediaServices.encodeAsset(addedFile.Id);
                 MediaServices.DeleteAsset(addedFile);
-                
+
+
+                var db1 = new UsersContext();
                 joukkovideo.path = MediaServices.GetStreamingURL(blobId);
+                var user = db1.UserProfiles.Single(u => u.UserId == WebSecurity.CurrentUserId);
+                joukkovideo.user = user;
                 db.JoukkoVideos.Add(joukkovideo);
                 db.SaveChanges();
                 return RedirectToAction("Index");
