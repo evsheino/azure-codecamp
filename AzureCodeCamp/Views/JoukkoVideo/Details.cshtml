@@ -1,18 +1,15 @@
 ﻿@model AzureCodeCamp.Models.JoukkoVideo
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Model.title;
 }
 
-<h2>Details</h2>
+<h2>@Model.title</h2>
 
 <fieldset>
     <legend>JoukkoVideo</legend>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.path)
-    </div>
-    <div class="display-field">
+    <div class="video">
         <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
         <script src="http://vjs.zencdn.net/c/video.js"></script>
         <video class="video-js vjs-default-skin" controls
@@ -20,10 +17,22 @@
                 data-setup="{}">
             <source src="@Html.DisplayFor(model => model.path)" type='video/mp4'>
         </video>
-        @Html.DisplayFor(model => model.path)
+    </div>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.user)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.user.UserName)
+    </div>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.timestamp)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.timestamp)
     </div>
 </fieldset>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Delete", "Delete", new { id=Model.ID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

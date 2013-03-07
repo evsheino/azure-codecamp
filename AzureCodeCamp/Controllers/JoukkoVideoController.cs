@@ -11,9 +11,11 @@ using System.Web.Security;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
+using AzureCodeCamp.Filters;
 
 namespace AzureCodeCamp.Controllers
 {
+    [InitializeSimpleMembership]
     public class JoukkoVideoController : Controller
     {
         private JoukkoVideoDBContext db = new JoukkoVideoDBContext();
@@ -100,22 +102,22 @@ namespace AzureCodeCamp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(JoukkoVideo joukkovideo)
         {
-            var vid = db.JoukkoVideos.Single(video => video.ID == joukkovideo.ID);
-            db.JoukkoVideos.Load();
-            vid.title = joukkovideo.title;
-            //db.JoukkoVideos.Single(video => video.ID == joukkovideo.ID).title = joukkovideo.title;
-            db.SaveChanges();
-            /*
-            //if (ModelState.IsValid)
-            //{
+
+            if (ModelState.IsValid)
+            {
                 if (joukkovideo.user.UserId == WebSecurity.CurrentUserId ||
                     Roles.GetRolesForUser().Contains("Admin"))
                 {
                     db.Entry(joukkovideo).State = EntityState.Modified;
-                    db.SaveChanges();*/
+                    db.SaveChanges();
                     //return RedirectToAction("Index");
-                //}
-            //}
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Permission denied");
+                }
+
+            }
             return View(joukkovideo);
         }
 
