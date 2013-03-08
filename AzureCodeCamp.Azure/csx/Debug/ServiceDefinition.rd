@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<serviceModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AzureCodeCamp.Azure" generation="1" functional="0" release="0" Id="33ec7769-b445-47f1-8fc9-8d7d685ba173" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
+<serviceModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AzureCodeCamp.Azure" generation="1" functional="0" release="0" Id="432f3b14-dabc-4b87-8dd8-2d60a625d10d" dslVersion="1.2.0.0" xmlns="http://schemas.microsoft.com/dsltools/RDSM">
   <groups>
     <group name="AzureCodeCamp.AzureGroup" generation="1" functional="0" release="0">
       <componentports>
@@ -121,9 +121,9 @@
     </group>
   </groups>
   <implements>
-    <implementation Id="c0a0fe63-712c-4e97-a945-c9cc869df0e4" ref="Microsoft.RedDog.Contract\ServiceContract\AzureCodeCamp.AzureContract@ServiceDefinition">
+    <implementation Id="1a6be7d1-5556-49bc-860f-b2afe618be87" ref="Microsoft.RedDog.Contract\ServiceContract\AzureCodeCamp.AzureContract@ServiceDefinition">
       <interfacereferences>
-        <interfaceReference Id="0bc52d6d-5805-4d92-97a3-e3e01f6e606e" ref="Microsoft.RedDog.Contract\Interface\AzureCodeCamp:Endpoint1@ServiceDefinition">
+        <interfaceReference Id="9f28cb1c-4303-47df-842d-0294da74f70e" ref="Microsoft.RedDog.Contract\Interface\AzureCodeCamp:Endpoint1@ServiceDefinition">
           <inPort>
             <inPortMoniker name="/AzureCodeCamp.Azure/AzureCodeCamp.AzureGroup/AzureCodeCamp:Endpoint1" />
           </inPort>

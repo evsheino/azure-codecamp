@@ -8,7 +8,7 @@ using System.Threading;
 using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.Diagnostics;
 using Microsoft.WindowsAzure.ServiceRuntime;
-using Microsoft.WindowsAzure.StorageClient;
+//using Microsoft.WindowsAzure.StorageClient;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.MediaServices.Client;
 using AzureCodeCamp.Utils;
@@ -26,10 +26,20 @@ namespace WorkerRole1
         public override void Run()
         {
 
+            var sourceContainer = BlobStorage.container;
             
             while (true)
             {
-
+                foreach (CloudBlockBlob sourceBlob in sourceContainer.ListBlobs())
+                {
+                    sourceBlob.FetchAttributes();
+                    int userId = int.Parse(sourceBlob.Metadata["userid"]);
+                    IAsset assetToBeProcessed = BlobToMedia.UseAzureStorageSdkToUpload(sourceBlob.Name);
+                    IAsset encodedAsset = MediaServices.encodeAsset(assetToBeProcessed.Id);
+                    MediaServices.DeleteAsset(assetToBeProcessed);
+                    string streamingUrl = MediaServices.GetStreamingURL(encodedAsset);
+                    sourceBlob.Delete();
+                }
 
                 Thread.Sleep(10000);
                 break;

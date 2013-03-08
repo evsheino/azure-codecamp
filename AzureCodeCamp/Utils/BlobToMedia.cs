@@ -15,7 +15,7 @@ using Microsoft.WindowsAzure.StorageClient;
 
 namespace AzureCodeCamp.Utils
 {
-    public class Class1
+    public class BlobToMedia
     {
         private static readonly string _accountKey = ConfigurationManager.AppSettings["accountKey"];
         private static readonly string _accountName = ConfigurationManager.AppSettings["accountName"];
@@ -23,12 +23,12 @@ namespace AzureCodeCamp.Utils
         // Field for service context.
         private static CloudMediaContext _context = new CloudMediaContext(_accountName, _accountKey);
 
-        public static IAsset UseAzureStorageSdkToUpload()
+        public static IAsset UseAzureStorageSdkToUpload(string fileName)
         {
             //
             //Create an empty asset:
             Guid g = Guid.NewGuid();
-            IAsset assetToBeProcessed = _context.Assets.Create("NewAsset_" + g.ToString(), AssetCreationOptions.None);
+            IAsset assetToBeProcessed = _context.Assets.Create(fileName + "_" + g.ToString(), AssetCreationOptions.None);
 
             //
             //Create a locator to get the SAS url:
@@ -64,7 +64,7 @@ namespace AzureCodeCamp.Utils
                 //
                 //Specific things you'll need to set:
                 var sourceContainerName = "video";
-                var sourceFileBlobName = "testi2.mp4";
+                var sourceFileBlobName = fileName;
 
                 destinationFileBlobName = sourceFileBlobName;
 
@@ -110,9 +110,8 @@ namespace AzureCodeCamp.Utils
             destinationAssetFile.Update();
 
             assetToBeProcessed = RefreshAsset(assetToBeProcessed, _context);
-            return MediaServices.encodeAsset(assetToBeProcessed.Id);
+            return assetToBeProcessed;
 
-            
             //
             //At this point, you can create a job using your asset.
             // ...
