@@ -35,7 +35,7 @@ namespace WorkerRole1
                 {
                     sourceBlob.FetchAttributes();
                     string title = sourceBlob.Metadata["title"];
-                    int category = 1; //int.Parse(sourceBlob.Metadata["category"]);
+                    int categoryId = int.Parse(sourceBlob.Metadata["category"]);
                     int userId = int.Parse(sourceBlob.Metadata["userid"]);
                     IAsset assetToBeProcessed = BlobToMedia.UseAzureStorageSdkToUpload(sourceBlob.Name);
                     IAsset encodedAsset = MediaServices.encodeAsset(assetToBeProcessed.Id);
@@ -50,6 +50,7 @@ namespace WorkerRole1
                     var user = db.UserProfiles.Single(u => u.UserId == userId);
                     joukkovideo.user = user;
                     joukkovideo.title = title;
+                    joukkovideo.category = db.Category.Single(c => c.ID == categoryId);
                     
                     db.JoukkoVideos.Add(joukkovideo);
                     db.SaveChanges();

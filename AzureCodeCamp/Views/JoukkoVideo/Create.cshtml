@@ -27,12 +27,10 @@
         <div class="editor-field">
             <input type="file" name="file" />
         </div>
-        <div>
-            <select name="category">
-                @foreach (var item in ViewBag.categories) {
-                    <option value=@item.ID>@item.name</option>
-                }
-            </select>
+
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.categoryId, (SelectList)ViewBag.categories)
+            @Html.ValidationMessageFor(model => model.categoryId)
         </div>
 
         <p>

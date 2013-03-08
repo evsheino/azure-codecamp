@@ -60,7 +60,8 @@ namespace AzureCodeCamp.Controllers
         [Authorize]
         public ActionResult Create()
         {
-            ViewBag.categories = db.Category.ToList();
+
+            ViewBag.categories = new SelectList(db.Category, "ID", "Name");
             return View();
         }
 
@@ -76,19 +77,7 @@ namespace AzureCodeCamp.Controllers
             if (file != null && file.ContentLength > 0)
             {
                 
-                BlobStorage.uploadBlob(file, WebSecurity.CurrentUserId.ToString(), joukkovideo.title);
-                
-             
-             
-               // var addedFile = MediaServices.createAsset(blob);
-               /* var blobId = MediaServices.encodeAsset(addedFile.Id);
-                MediaServices.DeleteAsset(addedFile);
-
-                joukkovideo.path = MediaServices.GetStreamingURL(blobId);
-                var user = db.UserProfiles.Single(u => u.UserId == WebSecurity.CurrentUserId);
-                joukkovideo.user = user;
-                db.JoukkoVideos.Add(joukkovideo);
-                db.SaveChanges();*/
+                BlobStorage.uploadBlob(file, WebSecurity.CurrentUserId, joukkovideo.title, joukkovideo.categoryId);
 
                 return RedirectToAction("Index");
             }

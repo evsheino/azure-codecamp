@@ -24,12 +24,18 @@ namespace AzureCodeCamp.Models
         [HiddenInput]
         [Display(Name="Added")]
         public DateTime timestamp { get; set; }
+
+        public int userId { get; set; }
+
         [Required]
         [HiddenInput]
-        [Display(Name="User")]
+        [ForeignKey("userId")]
         public virtual UserProfile user { get; set; }
+
         [Required]
-        [Display(Name="Category")]
+        public int categoryId { get; set; }
+        
+        [ForeignKey("categoryId")]
         public virtual Category category { get; set; }
 
         public JoukkoVideo()
