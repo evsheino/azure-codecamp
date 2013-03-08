@@ -29,11 +29,7 @@ namespace AzureCodeCamp.Controllers
 
             var category = db.Category.Find(id);
 
-            var videos = from v in db.JoukkoVideos
-                             from c in db.Category
-                             where v.category.ID == c.ID
-                             select v;
-
+            var videos = db.JoukkoVideos.Where(v => v.categoryId == id);
             videos = videos.OrderByDescending(v => v.timestamp);
 
             ViewBag.Category = category.name;
