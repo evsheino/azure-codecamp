@@ -34,6 +34,13 @@
             @Html.HiddenFor(model => model.timestamp)
             @Html.ValidationMessageFor(model => model.timestamp)
         </div>
+        <div class="editor-field">
+            <select name="category">
+                @foreach (var item in ViewBag.categories) {
+                    <option value=@item.ID>@item.name</option>
+                }
+            </select>
+        </div>
         <p>
             <input type="submit" value="Save" />
         </p>

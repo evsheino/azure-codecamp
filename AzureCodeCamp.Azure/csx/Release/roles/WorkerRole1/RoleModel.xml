@@ -27,10 +27,10 @@
     <Property name="RoleType" value="Worker" />
     <Property name="RoleName" value="WorkerRole1" />
     <Property name="ProjectName" value="WorkerRole1" />
-    <Property name="Configuration" value="Debug" />
+    <Property name="Configuration" value="Release" />
     <Property name="Platform" value="AnyCPU" />
     <Property name="RoleTargetFramework" value="v4.5" />
-    <Property name="OutputDir" value="C:\Users\Erkki\documents\visual studio 2012\Projects\AzureCodeCamp\AzureCodeCamp.Azure\obj\Debug\WorkerRole1\" />
+    <Property name="OutputDir" value="C:\Users\Erkki\documents\visual studio 2012\Projects\AzureCodeCamp\AzureCodeCamp.Azure\obj\Release\WorkerRole1\" />
     <Property name="EntryPoint" value="WorkerRole1.dll" />
     <Property name="SourceDir" value="" />
     <Property name="SitePhysicalPath" value="" />

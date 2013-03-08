@@ -33,7 +33,14 @@ namespace WorkerRole1
             {
                 foreach (CloudBlockBlob sourceBlob in sourceContainer.ListBlobs())
                 {
-                    sourceBlob.FetchAttributes();
+                    try
+                    {
+                        sourceBlob.FetchAttributes();
+                    }
+                    catch
+                    {
+                        continue;
+                    }
                     string title = sourceBlob.Metadata["title"];
                     int categoryId = int.Parse(sourceBlob.Metadata["category"]);
                     int userId = int.Parse(sourceBlob.Metadata["userid"]);

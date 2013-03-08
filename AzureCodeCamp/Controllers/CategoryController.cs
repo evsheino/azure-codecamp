@@ -62,7 +62,6 @@ namespace AzureCodeCamp.Controllers
         // GET: /Category/Create
 
         [Authorize]
-        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -71,7 +70,7 @@ namespace AzureCodeCamp.Controllers
         //
         // POST: /Category/Create
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         public ActionResult Create(string name)
         {
             Category category = new Category();
