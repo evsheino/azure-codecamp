@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureCodeCamp.Tests", "Azur
 EndProject
 Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "AzureCodeCamp.Azure", "AzureCodeCamp.Azure\AzureCodeCamp.Azure.ccproj", "{A81930F9-C116-442F-BF82-C50FABD2B09B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerRole1", "WorkerRole1\WorkerRole1.csproj", "{E37EECF3-6744-4E15-A637-B251686C04AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{A81930F9-C116-442F-BF82-C50FABD2B09B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A81930F9-C116-442F-BF82-C50FABD2B09B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A81930F9-C116-442F-BF82-C50FABD2B09B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E37EECF3-6744-4E15-A637-B251686C04AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E37EECF3-6744-4E15-A637-B251686C04AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E37EECF3-6744-4E15-A637-B251686C04AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E37EECF3-6744-4E15-A637-B251686C04AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

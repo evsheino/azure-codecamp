@@ -18,7 +18,7 @@ namespace AzureCodeCamp.Utils
         private static readonly string _accountName = ConfigurationManager.AppSettings["accountName"];
 
         // Field for service context.
-        private static CloudMediaContext _context = new CloudMediaContext(_accountName, _accountKey);
+        public static CloudMediaContext _context = new CloudMediaContext(_accountName, _accountKey);
 
         //TODO: Enkoodattoman videon poisto ainakin
         //Esimerkki käyttöä

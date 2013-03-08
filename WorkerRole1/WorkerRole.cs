@@ -3,13 +3,21 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
+using System.IO;
 using System.Threading;
 using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.Diagnostics;
 using Microsoft.WindowsAzure.ServiceRuntime;
 using Microsoft.WindowsAzure.StorageClient;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.MediaServices.Client;
 using AzureCodeCamp.Utils;
 using AzureCodeCamp.Models;
+using System.Web;
+using System.Text;
+using Microsoft.WindowsAzure.Storage.Auth;
+using Microsoft.WindowsAzure.Storage.Blob;
+using System.Configuration;
 
 namespace WorkerRole1
 {
@@ -17,13 +25,14 @@ namespace WorkerRole1
     {
         public override void Run()
         {
-            // This is a sample worker implementation. Replace with your logic.
-            Trace.WriteLine("WorkerRole1 entry point called", "Information");
 
+            
             while (true)
             {
+
+
                 Thread.Sleep(10000);
-                Trace.WriteLine("Working", "Information");
+                break;
             }
         }
 
