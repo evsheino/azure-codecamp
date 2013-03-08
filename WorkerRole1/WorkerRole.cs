@@ -33,6 +33,8 @@ namespace WorkerRole1
                 foreach (CloudBlockBlob sourceBlob in sourceContainer.ListBlobs())
                 {
                     sourceBlob.FetchAttributes();
+                    string title = sourceBlob.Metadata["title"];
+                    int category = int.Parse(sourceBlob.Metadata["category"]);
                     int userId = int.Parse(sourceBlob.Metadata["userid"]);
                     IAsset assetToBeProcessed = BlobToMedia.UseAzureStorageSdkToUpload(sourceBlob.Name);
                     IAsset encodedAsset = MediaServices.encodeAsset(assetToBeProcessed.Id);
@@ -42,7 +44,6 @@ namespace WorkerRole1
                 }
 
                 Thread.Sleep(10000);
-                break;
             }
         }
 
