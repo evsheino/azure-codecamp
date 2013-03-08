@@ -60,7 +60,6 @@ namespace AzureCodeCamp.Controllers
         [Authorize]
         public ActionResult Create()
         {
-            ViewBag.categories = db.Category.ToList();
             return View();
         }
 
@@ -72,13 +71,17 @@ namespace AzureCodeCamp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(JoukkoVideo joukkovideo, HttpPostedFileBase file)
         {
+<<<<<<< HEAD
+            //var blob = BlobToMedia.UseAzureStorageSdkToUpload();
+=======
             
+>>>>>>> 960bbccdb3aa7094bf01b4979fcd602e3d54b879
             if (file != null && file.ContentLength > 0)
             {
                 
-                BlobStorage.uploadBlob(file, WebSecurity.CurrentUserId.ToString(), joukkovideo.title);
+                BlobStorage.uploadBlob(file, WebSecurity.CurrentUserId.ToString());
                 
-             
+                
              
                // var addedFile = MediaServices.createAsset(blob);
                /* var blobId = MediaServices.encodeAsset(addedFile.Id);
