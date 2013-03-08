@@ -60,6 +60,7 @@ namespace AzureCodeCamp.Controllers
         [Authorize]
         public ActionResult Create()
         {
+            ViewBag.categories = db.Category.ToList();
             return View();
         }
 
@@ -101,6 +102,7 @@ namespace AzureCodeCamp.Controllers
         [Authorize]
         public ActionResult Edit(int id = 0)
         {
+            ViewBag.categories = db.Category.ToList();
             JoukkoVideo joukkovideo = db.JoukkoVideos.Find(id);
             if (joukkovideo == null)
             {
