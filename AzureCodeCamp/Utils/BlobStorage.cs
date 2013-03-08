@@ -20,12 +20,15 @@ namespace AzureCodeCamp.Utils
         // Retrieve a reference to a container. 
         public static CloudBlobContainer container = blobClient.GetContainerReference("video");
         
-        public static CloudBlockBlob uploadBlob(HttpPostedFileBase file)
+        public static CloudBlockBlob uploadBlob(HttpPostedFileBase file, string userid)
         {
             string fn = file.FileName;
             CloudBlockBlob blockBlob  = container.GetBlockBlobReference(fn);
             blockBlob.UploadFromStream(file.InputStream);
             
+            //Asetetaan metadataan userid
+            blockBlob.Metadata["userid"] = userid;
+            blockBlob.SetMetadata();
             return blockBlob;
         }
         

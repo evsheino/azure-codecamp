@@ -71,11 +71,12 @@ namespace AzureCodeCamp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(JoukkoVideo joukkovideo, HttpPostedFileBase file)
         {
-            var blob = Class1.UseAzureStorageSdkToUpload();
+            
             if (file != null && file.ContentLength > 0)
             {
                 
-                //var blob = BlobStorage.uploadBlob(file);
+                BlobStorage.uploadBlob(file, WebSecurity.CurrentUserId.ToString());
+                
                 
              
                // var addedFile = MediaServices.createAsset(blob);
