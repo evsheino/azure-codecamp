@@ -58,5 +58,26 @@ namespace AzureCodeCamp.Controllers
 
         }
 
+        //
+        // GET: /Category/Create
+
+        [Authorize]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        //
+        // POST: /Category/Create
+        [HttpPost]
+        public ActionResult Create(string name)
+        {
+            Category category = new Category();
+            category.name = name;
+            db.Category.Add(category);
+            db.SaveChanges();
+            return View();
+        }
+
     }
 }

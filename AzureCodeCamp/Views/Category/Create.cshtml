@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create a new category</h2>
+@using (Html.BeginForm("Create", "Category", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        Name: <input type="text" name="name" />
+        <input type="submit" value="save" />
+    </fieldset>
+}
