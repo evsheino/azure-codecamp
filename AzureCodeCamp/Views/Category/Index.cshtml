@@ -1,0 +1,66 @@
+﻿@model AzureCodeCamp.Utils.PaginatedList<AzureCodeCamp.Models.JoukkoVideo>
+
+@{
+    ViewBag.Title = "Videos";
+}
+
+<h2>@ViewBag.Category</h2>
+
+<p>
+    @Html.ActionLink("Upload a video", "../JoukkoVideo/Create")
+</p>
+<table>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <h3>
+                @Html.DisplayFor(modelItem => item.title)
+            </h3>
+            <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
+            <script src="http://vjs.zencdn.net/c/video.js"></script>
+            <video class="video-js vjs-default-skin" controls
+                preload="auto" width="640" height="480"
+                data-setup="{}">
+                <source src="@Html.DisplayFor(modelItem => item.path)" type='video/mp4'>
+            </video>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
+<br />
+
+<div class="pagination">
+    Page @Model.PageIndex of @Model.TotalPages
+    <br />
+    @if (@Model.HasPreviousPage)
+    {
+        @Html.ActionLink("First", "Index")
+    } else {
+        @:First
+    } |
+    @if (@Model.HasPreviousPage)
+    {
+        @Html.ActionLink("Previous", "Index", new { page = ((int)@Model.PageIndex - 1) })
+    } else {
+        @:Previous
+    } |
+    @if (@Model.HasNextPage)
+    {
+        @Html.ActionLink("Next", "Index", new { page = ((int)@Model.PageIndex + 1) })
+    } else {
+        @:Next
+    } |
+    @if (@Model.HasNextPage)
+    {
+        @Html.ActionLink("Last", "Index", new { page = (int)@Model.TotalPages })
+    } else {
+        @:Last
+    }
+</div>

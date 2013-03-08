@@ -1,0 +1,20 @@
+﻿@model List<AzureCodeCamp.Models.Category>
+
+<h2>@ViewBag.Category</h2>
+
+<p>
+    @Html.ActionLink("Upload a video", "../JoukkoVideo/Create")
+</p>
+<table>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <h3>
+                @Html.ActionLink(item.name, "", new { id=item.ID })
+            </h3>
+        </td>
+    </tr>
+}
+
+</table>
+<br />
