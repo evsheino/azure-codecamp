@@ -201,18 +201,20 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JoukkoVideoController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201303071141364_Initial.cs" />
-    <Compile Include="Migrations\201303071141364_Initial.Designer.cs">
-      <DependentUpon>201303071141364_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201303071841469_Category.cs" />
+    <Compile Include="Migrations\201303071841469_Category.Designer.cs">
+      <DependentUpon>201303071841469_Category.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\VideoModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\BlobStorage.cs" />
@@ -357,8 +359,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201303071141364_Initial.resx">
-      <DependentUpon>201303071141364_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201303071841469_Category.resx">
+      <DependentUpon>201303071841469_Category.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
