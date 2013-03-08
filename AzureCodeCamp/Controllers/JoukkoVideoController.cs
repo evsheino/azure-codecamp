@@ -60,6 +60,7 @@ namespace AzureCodeCamp.Controllers
         [Authorize]
         public ActionResult Create()
         {
+            ViewBag.categories = db.Category.ToList();
             return View();
         }
 
