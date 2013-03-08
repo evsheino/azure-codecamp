@@ -75,7 +75,7 @@ namespace AzureCodeCamp.Controllers
             if (file != null && file.ContentLength > 0)
             {
                 
-                BlobStorage.uploadBlob(file, WebSecurity.CurrentUserId.ToString());
+                BlobStorage.uploadBlob(file, WebSecurity.CurrentUserId.ToString(), joukkovideo.title);
                 
              
              
