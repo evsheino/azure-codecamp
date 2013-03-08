@@ -12,6 +12,5 @@ namespace AzureCodeCamp.Models
         public int ID { get; set; }
         [Required]
         public string name { get; set; }
-        public virtual ICollection<JoukkoVideo> videos { get; set; }
     }
 }

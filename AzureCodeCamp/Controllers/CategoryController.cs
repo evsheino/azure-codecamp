@@ -25,9 +25,18 @@ namespace AzureCodeCamp.Controllers
             const int pageSize = 20;
             int pageNum = (page ?? 1);
 
+            
+
             var category = db.Category.Find(id);
+
+            var videos = from v in db.JoukkoVideos
+                             from c in db.Category
+                             where v.category.ID == c.ID
+                             select v;
+
+            videos = videos.OrderByDescending(v => v.timestamp);
+
             ViewBag.Category = category.name;
-            var videos = category.videos.AsQueryable();
             var paginator = new PaginatedList<JoukkoVideo>(videos, pageNum, pageSize);
             
             return View(paginator);

@@ -28,6 +28,9 @@ namespace AzureCodeCamp.Models
         [HiddenInput]
         [Display(Name="User")]
         public virtual UserProfile user { get; set; }
+        [Required]
+        [Display(Name="Category")]
+        public virtual Category category { get; set; }
 
         public JoukkoVideo()
         {

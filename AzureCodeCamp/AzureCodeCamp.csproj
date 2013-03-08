@@ -209,6 +209,10 @@
     <Compile Include="Migrations\201303071841469_Category.Designer.cs">
       <DependentUpon>201303071841469_Category.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201303081113048_CategroryModified.cs" />
+    <Compile Include="Migrations\201303081113048_CategroryModified.Designer.cs">
+      <DependentUpon>201303081113048_CategroryModified.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -358,6 +362,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201303071841469_Category.resx">
       <DependentUpon>201303071841469_Category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201303081113048_CategroryModified.resx">
+      <DependentUpon>201303081113048_CategroryModified.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
