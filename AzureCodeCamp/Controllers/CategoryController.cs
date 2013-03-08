@@ -58,5 +58,28 @@ namespace AzureCodeCamp.Controllers
 
         }
 
+        //
+        // GET: /Category/Create
+
+        [Authorize]
+        [Authorize(Roles = "Admin")]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        //
+        // POST: /Category/Create
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        public ActionResult Create(string name)
+        {
+            Category category = new Category();
+            category.name = name;
+            db.Category.Add(category);
+            db.SaveChanges();
+            return View();
+        }
+
     }
 }
