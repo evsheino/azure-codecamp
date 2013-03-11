@@ -5,9 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AzureCodeCamp.Filters;
 
 namespace AzureCodeCamp.Controllers
 {
+    [InitializeSimpleMembership]
     public class CategoryController : Controller
     {
         private JoukkoVideoDBContext db = new JoukkoVideoDBContext();
@@ -36,7 +38,6 @@ namespace AzureCodeCamp.Controllers
             var paginator = new PaginatedList<JoukkoVideo>(videos, pageNum, pageSize);
             
             return View(paginator);
-            
         }
 
         // GET: /Category/list

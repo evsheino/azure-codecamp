@@ -31,7 +31,7 @@ namespace AzureCodeCamp.Controllers
             * The results are paginated.
             **/
 
-            const int pageSize = 20;
+            const int pageSize = 10;
             int pageNum = (page ?? 1);
 
             var videos = db.JoukkoVideos.OrderByDescending(jv => jv.timestamp);
@@ -39,6 +39,11 @@ namespace AzureCodeCamp.Controllers
             var paginator = new PaginatedList<JoukkoVideo>(videos, pageNum, pageSize);
 
             return View(paginator);
+        }
+
+        public ActionResult VideoList(PaginatedList<JoukkoVideo> videos)
+        {
+            return View(videos);
         }
 
         //
@@ -82,6 +87,8 @@ namespace AzureCodeCamp.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.categories = new SelectList(db.Category, "ID", "Name");
+            ModelState.AddModelError("", "Please choose a file to upload");
             return View(joukkovideo);
         }
 

@@ -18,18 +18,9 @@
             <source src="@Html.DisplayFor(model => model.path)" type='video/mp4'>
         </video>
     </div>
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.user)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.user.UserName)
-    </div>
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.timestamp)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.timestamp)
-    </div>
+    Uploaded by @Html.DisplayFor(model => model.user.UserName)
+    in category @Html.ActionLink(Model.category.name, "List", "Category",  new { id=Model.categoryId }) 
+    on @Html.DisplayFor(model => model.timestamp)
 </fieldset>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |

@@ -10,7 +10,7 @@
 @using (Html.BeginForm("Create", "JoukkoVideo", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+    @Html.ValidationSummary(true)
 
     <fieldset>
         <legend>JoukkoVideo</legend>
